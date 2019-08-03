@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Go react
+          continous integration
         </a>
       </header>
     </div>

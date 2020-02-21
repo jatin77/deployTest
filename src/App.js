@@ -34,7 +34,7 @@ class LinkedInPage extends Component {
           scope="r_liteprofile r_emailaddress w_member_social"
           onFailure={this.handleFailure}
           onSuccess={this.handleSuccess}
-          redirectUri="https://69mnz.csb.app/"
+          redirectUri="https://dazzling-jang-a707c9.netlify.com/"
           renderElement={({ onClick, disabled }) => (
             <button onClick={onClick} disabled={disabled}>
               Custom linkedin element

@@ -1,26 +1,49 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          continous integration
-        </a>
-      </header>
-    </div>
-  );
+import { LinkedIn } from "react-linkedin-login-oauth2";
+
+class LinkedInPage extends Component {
+  state = {
+    code: "",
+    errorMessage: ""
+  };
+
+  handleSuccess = data => {
+    console.log(data);
+    this.setState({
+      code: data.code,
+      errorMessage: ""
+    });
+  };
+
+  handleFailure = error => {
+    console.log(error);
+
+    this.setState({
+      code: "",
+      errorMessage: error.errorMessage
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <LinkedIn
+          response_type="code"
+          clientId="817ew6hqc3jaeg"
+          scope="r_liteprofile r_emailaddress w_member_social"
+          onFailure={this.handleFailure}
+          onSuccess={this.handleSuccess}
+          redirectUri="https://69mnz.csb.app/"
+          renderElement={({ onClick, disabled }) => (
+            <button onClick={onClick} disabled={disabled}>
+              Custom linkedin element
+            </button>
+          )}
+        />
+      </div>
+    );
+  }
 }
 
-export default App;
+export default LinkedInPage;

@@ -61,7 +61,7 @@ class LinkedIn extends Component {
         const data = {
           grant_type: "authorization_code",
           code: event.data.code,
-          redirect_uri: "https://dazzling-jang-a707c9.netlify.com",
+          redirect_uri: "localhost:3000",
           client_id: "817ew6hqc3jaeg",
           client_secret: "R0DW1klEdggd6VLB"
         };

@@ -28,14 +28,14 @@ class LinkedInPage extends Component {
       <div>
         <LinkedIn
           clientId="817ew6hqc3jaeg"
-          // redirectUri={`${window.location.origin}/linkedin`}
-          redirectUri="https://dazzling-jang-a707c9.netlify.com"
+          redirectUri={`${window.location.origin}/linkedin`}
+          // redirectUri="https://dazzling-jang-a707c9.netlify.com"
           scope="r_liteprofile r_emailaddress"
           state="34232423"
           onFailure={this.handleFailure}
           onSuccess={this.handleSuccess}
           supportIE
-          // redirectPath="/linkedin"
+          redirectPath="/linkedin"
         >
           <img
             src={require("./assets/linkedin.png")}

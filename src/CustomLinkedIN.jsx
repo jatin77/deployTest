@@ -14,9 +14,6 @@ import {
 /* Gets Linkedin Logo */
 
 class CustomLinkedIN extends Component {
-  state = {
-    code: ""
-  };
   constructor(props) {
     super(props);
 
@@ -84,16 +81,11 @@ class CustomLinkedIN extends Component {
         param.append("client_id", clienID);
         param.append("client_secret", secretKey);
 
-        this.setState({
-          code: linkedInAuthCode
-        });
-
         const headers = {
           "Content-Type": "application/x-www-form-urlencoded",
           "Access-Control-Allow-Origin": "*"
         };
-        const checkURL = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${linkedInAuthCode}&redirect_uri=${callBackUrl}&client_id=817ew6hqc3jaeg&client_secret=R0DW1klEdggd6VLB`;
-
+        const checkURL = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${linkedInAuthCode}&redirect_uri=https://learn.kraftshala.com&client_id=817ew6hqc3jaeg&client_secret=R0DW1klEdggd6VLB`;
         /* LinkedIn Base url */
         // axios
         //   .post(checkURL)
@@ -139,7 +131,6 @@ class CustomLinkedIN extends Component {
         <p className="linkedin-text">
           Connect with your personal LinkedIn account
         </p>
-        <a href=""></a>
       </div>
     );
   }

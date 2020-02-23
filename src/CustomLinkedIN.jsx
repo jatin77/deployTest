@@ -131,7 +131,7 @@ class CustomLinkedIN extends Component {
 
   /* Render function to create a structure for linkedin button */
   render() {
-    if (document.querySelector("#hit")) {
+    if (this.state.code != "") {
       var href = document.querySelector("#hit").getAttribute("href");
       window.location.href = href;
     }

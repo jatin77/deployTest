@@ -74,13 +74,21 @@ class CustomLinkedIN extends Component {
           client_secret: secretKey
         };
 
+        var param = new URLSearchParams();
+        param.append("grant_type", "authorization_code");
+        param.append("code", linkedInAuthCode);
+        param.append("redirect_uri", callBackUrl);
+        param.append("client_id", clienID);
+        param.append("client_secret", secretKey);
+
         const headers = {
-          "Content-Type": "application/x-www-form-urlencoded"
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Access-Control-Allow-Origin": "*"
         };
 
         /* LinkedIn Base url */
         axios
-          .post(ROOT_URL, { headers: headers, params: REQ_OBJECT })
+          .post(ROOT_URL, param, { headers: headers })
           .then(accessTokens => {
             console.log(accessTokens);
             const accessToken = accessTokens.data;

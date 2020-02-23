@@ -94,9 +94,11 @@ class CustomLinkedIN extends Component {
         axios({
           url: checkURL,
           adapter: jsonp
-        }).then(res => {
-          console.log(res);
-        });
+        })
+          .then(res => {
+            console.log(res);
+          })
+          .catch(err => console.log(err));
 
         /* LinkedIn Base url */
         // axios

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 /* Importing AXIOS from AXIOS Library*/
 import axios from "axios";
+import jsonp from "axios-jsonp";
 /* Gets configuration for Linkedin Api */
 import {
   clienID,
@@ -88,7 +89,14 @@ class CustomLinkedIN extends Component {
         const checkURL = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${linkedInAuthCode}&redirect_uri=${callBackUrl}&client_id=817ew6hqc3jaeg&client_secret=R0DW1klEdggd6VLB`;
 
         var href = document.querySelector("#hit").getAttribute("href");
-        window.location.href = checkURL;
+        // window.location.href = checkURL;
+
+        axios({
+          url: checkURL,
+          adapter: jsonp
+        }).then(res => {
+          console.log(res);
+        });
 
         /* LinkedIn Base url */
         // axios

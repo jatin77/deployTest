@@ -3,6 +3,7 @@ import QueryString from "query-string";
 
 class LinkedInPopUp extends Component {
   componentDidMount() {
+    console.log(QueryString.parse(window.location.search));
     const params = QueryString.parse(window.location.search);
     if (params.error) {
       const errorMessage =

@@ -10,7 +10,11 @@ class Demo extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/linkedin" component={LinkedInPopUp} />
+          <Route
+            exact
+            path="https://dazzling-jang-a707c9.netlify.com/linkedin"
+            component={LinkedInPopUp}
+          />
           <Route path="/" component={LinkedInPage} />
         </Switch>
       </BrowserRouter>

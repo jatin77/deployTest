@@ -19,5 +19,3 @@ class Demo extends Component {
 }
 
 export default Demo;
-
-// render(<Demo />, document.querySelector("#demo"));

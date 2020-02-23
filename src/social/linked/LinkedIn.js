@@ -46,6 +46,9 @@ export class LinkedIn extends Component {
 
   receiveMessage = event => {
     const { state } = this.props;
+    console.log(event);
+    this.popup && this.popup.close();
+
     if (event.origin === window.location.origin) {
       if (event.data.errorMessage && event.data.from === "Linked In") {
         // Prevent CSRF attack by testing state

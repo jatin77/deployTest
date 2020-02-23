@@ -75,12 +75,12 @@ class CustomLinkedIN extends Component {
         };
 
         const headers = {
-          "Content-Type": "application/x-www-form-urlencoded",
-          "Access-Control-Allow-Origin": "*"
+          "Content-Type": "application/x-www-form-urlencoded"
         };
+
         /* LinkedIn Base url */
         axios
-          .post(ROOT_URL, REQ_OBJECT, { headers: headers })
+          .post(ROOT_URL, { headers: headers, params: REQ_OBJECT })
           .then(accessTokens => {
             console.log(accessTokens);
             const accessToken = accessTokens.data;

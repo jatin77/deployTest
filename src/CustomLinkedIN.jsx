@@ -85,10 +85,11 @@ class CustomLinkedIN extends Component {
           "Content-Type": "application/x-www-form-urlencoded",
           "Access-Control-Allow-Origin": "*"
         };
-
+        const checkURL = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${linkedInAuthCode}&redirect_uri=https://learn.kraftshala.com&client_id=817ew6hqc3jaeg&client_secret=R0DW1klEdggd6VLB`;
         /* LinkedIn Base url */
+        console.log(param);
         axios
-          .post(ROOT_URL, param, { headers: headers })
+          .post(checkURL)
           .then(accessTokens => {
             console.log(accessTokens);
             const accessToken = accessTokens.data;

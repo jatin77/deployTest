@@ -29,7 +29,7 @@ class LinkedInPage extends Component {
         <LinkedIn
           clientId="817ew6hqc3jaeg"
           // redirectUri={`${window.location.origin}/linkedin`}
-          redirectUri="https://dazzling-jang-a707c9.netlify.com"
+          redirectUri="https://dazzling-jang-a707c9.netlify.com/linkedin"
           scope="r_liteprofile r_emailaddress"
           state="34232423"
           onFailure={this.handleFailure}

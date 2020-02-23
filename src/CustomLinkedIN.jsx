@@ -75,7 +75,8 @@ class CustomLinkedIN extends Component {
         };
 
         const headers = {
-          "Content-Type": "application/x-www-form-urlencoded"
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Access-Control-Allow-Origin": "*"
         };
         /* LinkedIn Base url */
         axios

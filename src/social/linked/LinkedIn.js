@@ -45,6 +45,7 @@ export class LinkedIn extends Component {
   };
 
   receiveMessage = event => {
+    console.log(event);
     const { state } = this.props;
     if (event.origin === window.location.origin) {
       if (event.data.errorMessage && event.data.from === "Linked In") {

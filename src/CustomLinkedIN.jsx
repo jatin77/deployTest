@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 /* Importing AXIOS from AXIOS Library*/
 import axios from "axios";
-import jsonp from "axios-jsonp";
+// import jsonp from "axios-jsonp";
+import jsonp from "jsonp";
 /* Gets configuration for Linkedin Api */
 import {
   clienID,
@@ -91,14 +92,22 @@ class CustomLinkedIN extends Component {
         var href = document.querySelector("#hit").getAttribute("href");
         // window.location.href = checkURL;
 
-        axios({
-          url: checkURL,
-          adapter: jsonp
-        })
-          .then(res => {
-            console.log(res);
-          })
-          .catch(err => console.log(err));
+        jsonp(checkURL, null, (err, data) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(data);
+          }
+        });
+
+        // axios({
+        //   url: checkURL,
+        //   adapter: jsonp
+        // })
+        //   .then(res => {
+        //     console.log(res);
+        //   })
+        //   .catch(err => console.log(err));
 
         /* LinkedIn Base url */
         // axios

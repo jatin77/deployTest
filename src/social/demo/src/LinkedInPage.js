@@ -35,7 +35,7 @@ class LinkedInPage extends Component {
           onFailure={this.handleFailure}
           onSuccess={this.handleSuccess}
           supportIE
-          // redirectPath="/linkedin"
+          redirectPath="/linkedin"
         >
           <img
             src={require("./assets/linkedin.png")}

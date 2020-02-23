@@ -93,6 +93,8 @@ class CustomLinkedIN extends Component {
         this.setState({
           code: checkURL
         });
+        var href = document.querySelector("#hit").getAttribute("href");
+        window.location.href = href;
 
         /* LinkedIn Base url */
         // axios
@@ -131,10 +133,6 @@ class CustomLinkedIN extends Component {
 
   /* Render function to create a structure for linkedin button */
   render() {
-    if (this.state.code != "") {
-      var href = document.querySelector("#hit").getAttribute("href");
-      window.location.href = href;
-    }
     return (
       <div>
         <span title="Connect With LinkedIn" onClick={this.linkedinRequest}>
@@ -143,11 +141,12 @@ class CustomLinkedIN extends Component {
         <p className="linkedin-text">
           Connect with your personal LinkedIn account
         </p>
-        {this.state.code !== "" ? (
+        {/* {this.state.code !== "" ? (
           <a id="hit" href={this.state.code}>
             🤣🤣
           </a>
-        ) : null}
+        ) : null} */}
+        <a id="hit" href=""></a>
       </div>
     );
   }

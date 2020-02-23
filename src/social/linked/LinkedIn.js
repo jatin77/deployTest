@@ -33,15 +33,14 @@ export class LinkedIn extends Component {
       ? `&scope=${supportIE ? scope : encodeURI(scope)}`
       : "";
     const linkedInAuthenLink = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}${scopeParam}&state=${state}`;
-    console.log(window.location.origin);
-    if (supportIE) {
-      const redirectLink = `${
-        window.location.origin
-      }${redirectPath}?linkedin_redirect_url=${encodeURIComponent(
-        linkedInAuthenLink
-      )}`;
-      return redirectLink;
-    }
+    // if (supportIE) {
+    //   const redirectLink = `${
+    //     window.location.origin
+    //   }${redirectPath}?linkedin_redirect_url=${encodeURIComponent(
+    //     linkedInAuthenLink
+    //   )}`;
+    //   return redirectLink;
+    // }
     return linkedInAuthenLink;
   };
 

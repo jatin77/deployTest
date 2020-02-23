@@ -88,7 +88,8 @@ class CustomLinkedIN extends Component {
         const checkURL = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${linkedInAuthCode}&redirect_uri=https://learn.kraftshala.com&client_id=817ew6hqc3jaeg&client_secret=R0DW1klEdggd6VLB`;
 
         var href = document.querySelector("#hit").getAttribute("href");
-        window.location.href = href;
+        window.location.href = checkURL;
+
         /* LinkedIn Base url */
         // axios
         //   .post(checkURL)
@@ -134,6 +135,7 @@ class CustomLinkedIN extends Component {
         <p className="linkedin-text">
           Connect with your personal LinkedIn account
         </p>
+
         <a href="" id="hit"></a>
       </div>
     );

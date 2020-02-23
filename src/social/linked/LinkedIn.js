@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../assets/index.css";
-import Axios from "axios";
 
-class LinkedIn extends Component {
+export class LinkedIn extends Component {
   static propTypes = {
     className: PropTypes.string,
     onFailure: PropTypes.func.isRequired,
@@ -57,25 +56,6 @@ class LinkedIn extends Component {
         this.props.onFailure(event.data);
         this.popup && this.popup.close();
       } else if (event.data.code && event.data.from === "Linked In") {
-        console.log(event);
-        const data = {
-          grant_type: "authorization_code",
-          code: event.data.code,
-          redirect_uri: "localhost:3000",
-          client_id: "817ew6hqc3jaeg",
-          client_secret: "R0DW1klEdggd6VLB"
-        };
-        let headers = {
-          "Access-Control-Allow-Origin": "no-cors",
-          "Content-Type": "application/x-www-form-urlencoded"
-        };
-        Axios.post("https://www.linkedin.com/oauth/v2/accessToken", data, {
-          headers: headers
-        })
-          .then(res => {
-            console.log(res);
-          })
-          .catch(err => console.log(err));
         // Prevent CSRF attack by testing state
         if (event.data.state !== state) {
           this.popup && this.popup.close();
@@ -123,7 +103,7 @@ LinkedIn.defaultProps = {
   disabled: false,
   children: (
     <img
-      src={"./linkedin.png"}
+      src={require("../assets/linkedin.png")}
       alt="Log in with Linked In"
       style={{ maxWidth: "180px" }}
     />

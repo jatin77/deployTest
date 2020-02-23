@@ -14,6 +14,9 @@ import {
 /* Gets Linkedin Logo */
 
 class CustomLinkedIN extends Component {
+  state = {
+    code: ""
+  };
   constructor(props) {
     super(props);
 
@@ -86,20 +89,11 @@ class CustomLinkedIN extends Component {
           "Access-Control-Allow-Origin": "*"
         };
         const checkURL = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${linkedInAuthCode}&redirect_uri=https://learn.kraftshala.com&client_id=817ew6hqc3jaeg&client_secret=R0DW1klEdggd6VLB`;
-        const new1Window = window.open(checkURL, true, 500, 600);
-        if (window.focus) {
-          new1Window.focus();
-        }
-        const intr = setInterval(() => {
-          // if the window gets closed for any reason then clear the interval to prevent this from running for ever
-          if (new1Window.closed) {
-            clearInterval(intr);
-          }
 
-          console.log("access");
-        }, 100);
+        this.setState({
+          code: checkURL
+        });
         /* LinkedIn Base url */
-        // console.log(param);
         // axios
         //   .post(checkURL)
         //   .then(accessTokens => {
@@ -112,21 +106,21 @@ class CustomLinkedIN extends Component {
         //     };
         //     console.log(sentData);
 
-        //     /* Axios request for Getting Linkedin User details */
-        //     // axios.post(peopleUrl, sentData)
-        //     //     .then((success) => {
-        //     //       const userInfo = success.data;
-        //     //       if(userInfo && userInfo.id) {
-        //     //         console.log("userInfo", userInfo);
-        //     //       }
-        //     //     })
-        //     //     .catch((errored) => {
-        //     //       console.log("errored", errored);
-        //     //     });
-        //   })
-        //   .catch(errors => {
-        //     console.log("errors", errors);
-        //   });
+        /* Axios request for Getting Linkedin User details */
+        // axios.post(peopleUrl, sentData)
+        //     .then((success) => {
+        //       const userInfo = success.data;
+        //       if(userInfo && userInfo.id) {
+        //         console.log("userInfo", userInfo);
+        //       }
+        //     })
+        //     .catch((errored) => {
+        //       console.log("errored", errored);
+        //     });
+        // })
+        // .catch(errors => {
+        //   console.log("errors", errors);
+        // });
 
         /* This will close the window popup automatically once all the above requests are completed */
         newWindow.close();
@@ -144,6 +138,7 @@ class CustomLinkedIN extends Component {
         <p className="linkedin-text">
           Connect with your personal LinkedIn account
         </p>
+        {this.state.code !== "" ? <a href={this.state.code}>🤣🤣</a> : null}
       </div>
     );
   }

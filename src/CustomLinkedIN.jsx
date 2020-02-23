@@ -93,8 +93,8 @@ class CustomLinkedIN extends Component {
         this.setState({
           code: checkURL
         });
-        var href = document.querySelector("#hit").getAttribute("href");
-        window.location.href = href;
+        // var href = document.querySelector("#hit").getAttribute("href");
+        // window.location.href = href;
 
         /* LinkedIn Base url */
         // axios

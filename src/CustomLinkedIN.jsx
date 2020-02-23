@@ -84,17 +84,15 @@ class CustomLinkedIN extends Component {
         param.append("client_id", clienID);
         param.append("client_secret", secretKey);
 
+        this.setState({
+          code: linkedInAuthCode
+        });
+
         const headers = {
           "Content-Type": "application/x-www-form-urlencoded",
           "Access-Control-Allow-Origin": "*"
         };
         const checkURL = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${linkedInAuthCode}&redirect_uri=${callBackUrl}&client_id=817ew6hqc3jaeg&client_secret=R0DW1klEdggd6VLB`;
-
-        this.setState({
-          code: checkURL
-        });
-        // var href = document.querySelector("#hit").getAttribute("href");
-        // window.location.href = href;
 
         /* LinkedIn Base url */
         // axios
@@ -141,12 +139,7 @@ class CustomLinkedIN extends Component {
         <p className="linkedin-text">
           Connect with your personal LinkedIn account
         </p>
-        {/* {this.state.code !== "" ? (
-          <a id="hit" href={this.state.code}>
-            🤣🤣
-          </a>
-        ) : null} */}
-        <a id="hit" href=""></a>
+        <a href=""></a>
       </div>
     );
   }

@@ -36,9 +36,8 @@ export class LinkedIn extends Component {
     if (supportIE) {
       const redirectLink = `${
         window.location.origin
-      }${redirectPath}?linkedin_redirect_url=${encodeURIComponent(
-        linkedInAuthenLink
-      )}`;
+      }?linkedin_redirect_url=${encodeURIComponent(linkedInAuthenLink)}`;
+      console.log(redirectLink);
       return redirectLink;
     }
     return linkedInAuthenLink;

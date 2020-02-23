@@ -32,7 +32,8 @@ export class LinkedIn extends Component {
     const scopeParam = scope
       ? `&scope=${supportIE ? scope : encodeURI(scope)}`
       : "";
-    const linkedInAuthenLink = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}${scopeParam}&state=${state}`;
+    const linkedInAuthenLink = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}/linkedin${scopeParam}&state=${state}`;
+    console.log(supportIE);
     // if (supportIE) {
     //   const redirectLink = `${
     //     window.location.origin

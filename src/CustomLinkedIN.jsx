@@ -88,7 +88,7 @@ class CustomLinkedIN extends Component {
           "Content-Type": "application/x-www-form-urlencoded",
           "Access-Control-Allow-Origin": "*"
         };
-        const checkURL = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${linkedInAuthCode}&redirect_uri=https://learn.kraftshala.com&client_id=817ew6hqc3jaeg&client_secret=R0DW1klEdggd6VLB`;
+        const checkURL = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${linkedInAuthCode}&redirect_uri=${callBackUrl}&client_id=817ew6hqc3jaeg&client_secret=R0DW1klEdggd6VLB`;
 
         this.setState({
           code: checkURL

@@ -20,7 +20,7 @@ class CustomLinkedIN extends Component {
     super(props);
 
     /* Url for getting authorization code */
-    this.winUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${clienID}&redirect_uri=${callBackUrl}&scope=r_liteprofile+r_emailaddress&state=98765EeFWf45A53sdfKef4233`;
+    this.winUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${clienID}&redirect_uri=${callBackUrl}&scope=r_liteprofile+r_emailaddress+w_member_social&state=98765EeFWf45A53sdfKef4233`;
 
     this.linkedinRequest = this.linkedinRequest.bind(this);
     this.getParameterByName = this.getParameterByName.bind(this);

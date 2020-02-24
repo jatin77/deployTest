@@ -89,16 +89,16 @@ class CustomLinkedIN extends Component {
         };
         const checkURL = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${linkedInAuthCode}&redirect_uri=${callBackUrl}&client_id=817ew6hqc3jaeg&client_secret=R0DW1klEdggd6VLB`;
 
-        var href = document.querySelector("#hit").getAttribute("href");
+        // var href = document.querySelector("#hit").getAttribute("href");
         // window.location.href = checkURL;
 
-        jsonp(checkURL, null, (err, data) => {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log(data);
-          }
-        });
+        // jsonp(checkURL, null, (err, data) => {
+        //   if (err) {
+        //     console.log(err);
+        //   } else {
+        //     console.log(data);
+        //   }
+        // });
 
         // axios({
         //   url: checkURL,

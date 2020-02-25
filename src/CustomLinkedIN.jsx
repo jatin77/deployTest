@@ -68,7 +68,7 @@ class CustomLinkedIN extends Component {
         /* Sending Request object to server js file where the actual request is going to get fire for access token */
 
         axios
-          .post(`https://api.kraftshala.com/getLinkedinToken?code=${authCode}`)
+          .get(`https://api.kraftshala.com/getLinkedinToken?code=${authCode}`)
           .then(res => console.log(res))
           .catch(error => console.log(error));
 

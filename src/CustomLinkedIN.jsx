@@ -69,7 +69,7 @@ class CustomLinkedIN extends Component {
 
         axios
           .get(`https://api.kraftshala.com/getLinkedinToken?code=${authCode}`)
-          .then(res => console.log(res.data.data.token))
+          .then(res => console.log(res))
           .catch(error => console.log(error));
 
         /* This will close the window popup automatically once all the above requests are completed */

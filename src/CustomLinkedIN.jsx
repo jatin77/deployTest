@@ -53,9 +53,8 @@ class CustomLinkedIN extends Component {
       try {
         search = newWindow.location.search;
       } catch (e) {
-        console.log(e.getCurrentStack);
+        // console.log(e.getCurrentStack);
       }
-      console.log(search);
       if (search) {
         // grab the token and error from the location of the popup window
         const authCode = this.getParameterByName("code", search);
@@ -63,80 +62,15 @@ class CustomLinkedIN extends Component {
 
         /* This is used to stoken the authorization code */
         const linkedInAuthCode = authCode;
-        console.log("auth=", authCode);
+        console.log("authCode=", authCode);
         console.log("error=", error);
-        const ROOT_URL = `https://www.linkedin.com/oauth/v2/accessToken`;
 
         /* Sending Request object to server js file where the actual request is going to get fire for access token */
-        const REQ_OBJECT = {
-          grant_type: "authorization_code",
-          code: linkedInAuthCode,
-          redirect_uri: callBackUrl,
-          client_id: clienID,
-          client_secret: secretKey
-        };
 
-        var param = new URLSearchParams();
-        param.append("grant_type", "authorization_code");
-        param.append("code", linkedInAuthCode);
-        param.append("redirect_uri", callBackUrl);
-        param.append("client_id", clienID);
-        param.append("client_secret", secretKey);
-
-        const headers = {
-          "Content-Type": "application/x-www-form-urlencoded",
-          "Access-Control-Allow-Origin": "*"
-        };
-        const checkURL = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${linkedInAuthCode}&redirect_uri=${callBackUrl}&client_id=817ew6hqc3jaeg&client_secret=R0DW1klEdggd6VLB`;
-
-        // var href = document.querySelector("#hit").getAttribute("href");
-        // window.location.href = checkURL;
-
-        // jsonp(checkURL, null, (err, data) => {
-        //   if (err) {
-        //     console.log(err);
-        //   } else {
-        //     console.log(data);
-        //   }
-        // });
-
-        // axios({
-        //   url: checkURL,
-        //   adapter: jsonp
-        // })
-        //   .then(res => {
-        //     console.log(res);
-        //   })
-        //   .catch(err => console.log(err));
-
-        /* LinkedIn Base url */
-        // axios
-        //   .post(checkURL)
-        //   .then(accessTokens => {
-        //     console.log(accessTokens);
-        //     const accessToken = accessTokens.data;
-
-        //     const peopleUrl = userDetailsRoute;
-        //     const sentData = {
-        //       oauth2_access_token: accessToken
-        //     };
-        //     console.log(sentData);
-
-        /* Axios request for Getting Linkedin User details */
-        // axios.post(peopleUrl, sentData)
-        //     .then((success) => {
-        //       const userInfo = success.data;
-        //       if(userInfo && userInfo.id) {
-        //         console.log("userInfo", userInfo);
-        //       }
-        //     })
-        //     .catch((errored) => {
-        //       console.log("errored", errored);
-        //     });
-        // })
-        // .catch(errors => {
-        //   console.log("errors", errors);
-        // });
+        axios
+          .post(`https://api.kraftshala.com/getLinkedinToken?code=${authCode}`)
+          .then(res => console.log(res))
+          .catch(error => console.log(error));
 
         /* This will close the window popup automatically once all the above requests are completed */
         newWindow.close();

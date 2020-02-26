@@ -36,7 +36,7 @@ class CustomLinkedIN extends Component {
   linkedinRequest() {
     /* Creates a new Window */
     const newWindow = window.open(this.winUrl, "_blank", true, 500, 600);
-
+    console.log("hi");
     if (window.focus) {
       newWindow.focus();
     }
@@ -51,6 +51,7 @@ class CustomLinkedIN extends Component {
     // if not, then it's on api or the provider domain and we can't read the location
     let search;
     try {
+      console.log(newWindow.location.search);
       search = newWindow.location.search;
     } catch (e) {
       console.log(e.getCurrentStack);

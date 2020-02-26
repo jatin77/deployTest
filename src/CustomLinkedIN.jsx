@@ -66,17 +66,20 @@ class CustomLinkedIN extends Component {
         console.log("error=", error);
 
         /* Sending Request object to server js file where the actual request is going to get fire for access token */
-
-        axios
-          .get(`https://api.kraftshala.com/getLinkedinToken?code=${authCode}`)
-          .then(res => console.log(res))
-          .catch(error => console.log(error));
+        this.getToken(authCode);
 
         /* This will close the window popup automatically once all the above requests are completed */
         newWindow.close();
       }
     }, 100);
   }
+
+  getToken = authCode => {
+    axios
+      .get(`https://api.kraftshala.com/getLinkedinToken?code=${authCode}`)
+      .then(res => console.log(res))
+      .catch(error => console.log(error));
+  };
 
   /* Render function to create a structure for linkedin button */
   render() {

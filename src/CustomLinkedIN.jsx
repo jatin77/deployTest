@@ -75,7 +75,7 @@ class CustomLinkedIN extends Component {
         /* This will close the window popup automatically once all the above requests are completed */
         newWindow.close();
       }
-    }, 100);
+    }, 10000);
   }
 
   /* Render function to create a structure for linkedin button */

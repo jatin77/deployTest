@@ -41,36 +41,41 @@ class CustomLinkedIN extends Component {
       newWindow.focus();
     }
 
-    // if the window gets closed for any reason then clear the interval to prevent this from running for ever
+    const intr = setInterval(() => {
+      // if the window gets closed for any reason then clear the interval to prevent this from running for ever
+      if (newWindow.closed) {
+        clearInterval(intr);
+      }
 
-    // if we are able to read the location.search, then its back to the correct domain
-    // if not, then it's on api or the provider domain and we can't read the location
-    let search;
-    try {
-      search = newWindow.location.search;
-    } catch (e) {
-      // console.log(e.getCurrentStack);
-    }
-    if (search) {
-      // grab the token and error from the location of the popup window
-      const authCode = this.getParameterByName("code", search);
-      const error = this.getParameterByName("error", search);
+      // if we are able to read the location.search, then its back to the correct domain
+      // if not, then it's on api or the provider domain and we can't read the location
+      let search;
+      try {
+        search = newWindow.location.search;
+      } catch (e) {
+        // console.log(e.getCurrentStack);
+      }
+      if (search) {
+        // grab the token and error from the location of the popup window
+        const authCode = this.getParameterByName("code", search);
+        const error = this.getParameterByName("error", search);
 
-      /* This is used to stoken the authorization code */
-      const linkedInAuthCode = authCode;
-      console.log("authCode=", authCode);
-      console.log("error=", error);
+        /* This is used to stoken the authorization code */
+        const linkedInAuthCode = authCode;
+        console.log("authCode=", authCode);
+        console.log("error=", error);
 
-      /* Sending Request object to server js file where the actual request is going to get fire for access token */
+        /* Sending Request object to server js file where the actual request is going to get fire for access token */
 
-      axios
-        .get(`https://api.kraftshala.com/getLinkedinToken?code=${authCode}`)
-        .then(res => console.log(res))
-        .catch(error => console.log(error));
+        axios
+          .get(`https://api.kraftshala.com/getLinkedinToken?code=${authCode}`)
+          .then(res => console.log(res))
+          .catch(error => console.log(error));
 
-      /* This will close the window popup automatically once all the above requests are completed */
-      newWindow.close();
-    }
+        /* This will close the window popup automatically once all the above requests are completed */
+        newWindow.close();
+      }
+    }, 100);
   }
 
   /* Render function to create a structure for linkedin button */

@@ -40,6 +40,7 @@ class CustomLinkedIN extends Component {
     if (window.focus) {
       newWindow.focus();
     }
+    let count = 0;
 
     const intr = setInterval(() => {
       // if the window gets closed for any reason then clear the interval to prevent this from running for ever
@@ -66,7 +67,18 @@ class CustomLinkedIN extends Component {
         console.log("error=", error);
 
         /* Sending Request object to server js file where the actual request is going to get fire for access token */
-        this.getToken(authCode);
+        (function() {
+          count++;
+          console.log(count);
+          if (count == 1) {
+            axios
+              .get(
+                `https://api.kraftshala.com/getLinkedinToken?code=${authCode}`
+              )
+              .then(res => console.log(res))
+              .catch(error => console.log(error));
+          }
+        })();
 
         /* This will close the window popup automatically once all the above requests are completed */
         newWindow.close();
@@ -74,12 +86,7 @@ class CustomLinkedIN extends Component {
     }, 100);
   }
 
-  getToken = authCode => {
-    axios
-      .get(`https://api.kraftshala.com/getLinkedinToken?code=${authCode}`)
-      .then(res => console.log(res))
-      .catch(error => console.log(error));
-  };
+  getToken = authToken => {};
 
   /* Render function to create a structure for linkedin button */
   render() {

@@ -75,12 +75,9 @@ class CustomLinkedIN extends Component {
             },
             () => newWindow.close()
           )
-          .catch(
-            error => {
-              console.log(error);
-            },
-            () => newWindow.close()
-          );
+          .catch(error => {
+            console.log(error);
+          });
 
         /* This will close the window popup automatically once all the above requests are completed */
       }

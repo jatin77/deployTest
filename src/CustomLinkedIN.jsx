@@ -70,7 +70,8 @@ class CustomLinkedIN extends Component {
         (function() {
           count++;
           console.log(count);
-          if (count == 1) {
+          if (count === 1) {
+            console.log("hey!");
             axios
               .get(
                 `https://api.kraftshala.com/getLinkedinToken?code=${authCode}`

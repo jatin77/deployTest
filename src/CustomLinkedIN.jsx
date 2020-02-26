@@ -53,7 +53,7 @@ class CustomLinkedIN extends Component {
     try {
       search = newWindow.location.search;
     } catch (e) {
-      // console.log(e.getCurrentStack);
+      console.log(e.getCurrentStack);
     }
     if (search) {
       // grab the token and error from the location of the popup window
